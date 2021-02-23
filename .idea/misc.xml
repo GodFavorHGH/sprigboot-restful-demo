@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/common-esb-api/pom.xml" />
+        <option value="$PROJECT_DIR$/service-account/pom.xml" />
       </set>
     </option>
   </component>

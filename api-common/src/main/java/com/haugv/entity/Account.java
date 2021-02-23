@@ -5,18 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
+public class Account {
     private int id;
+    private int userId;
     private String name;
-    private String idNo;
-    private String idType;
-    private String phone;
+    private String type;
     private String status;
-    private List<Account> accountList;
+    private BigDecimal balance;
+    private User user;
 }

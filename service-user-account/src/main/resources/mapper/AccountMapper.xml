@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haugv.mapper.AccountMapper">
+    <insert id="createAccount" useGeneratedKeys="true" parameterType="Account">
+        insert into Account
+        (id,name,userid,type,balance,status)
+            values
+        (#{id},#{name},#{userId},#{type},#{balance},#{status})
+    </insert>
+
+    <resultMap id="BaseAccountMapping" type="Account">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="id_no" property="idNo"></result>
+        <result column="id_type" property="idType"></result>
+        <result column="phone" property="phone"></result>
+        <result column="status" property="status"></result>
+    </resultMap>
+    <select id="getAccount" parameterType="int" resultMap="BaseAccountMapping">
+        select * from account where id = #{id}
+    </select>
+
+    <update id="updateAccount" parameterType="Account">
+        update account
+            <trim prefix="set" suffixOverrides=",">
+                <if test="name !=null and name != ''">
+                    name = #{name},
+                </if>
+                <if test="idNo !=null and idNo != ''">
+                    id_no = #{idNo},
+                </if>
+                <if test="idType !=null and idType != ''">
+                    id_type = #{idType},
+                </if>
+                <if test="phone !=null and phone != ''">
+                    phone = #{phone},
+                </if>
+                <if test="status !=null and status != ''">
+                    status = #{status},
+                </if>
+            </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAccount" parameterType="int">
+        delete from Account where id = #{id} limit 1
+    </delete>
+</mapper>

@@ -7,19 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service-user" />
-        <module name="service-payment" />
-      </profile>
-      <profile name="Annotation profile for sprigboot-restful-demo" enabled="true">
-        <sourceOutputDir name="../../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
         <module name="service-order" />
-        <module name="service-account" />
+        <module name="service-user" />
+        <module name="service-user-account" />
+        <module name="service-payment" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common-esb-api" target="8" />
+      <module name="service-account" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

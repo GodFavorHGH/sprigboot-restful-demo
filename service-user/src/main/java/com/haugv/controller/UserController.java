@@ -23,7 +23,25 @@ public class UserController {
     }
 
     @GetMapping("/user/detail")
-    public Result getUserDetail(@RequestParam("userId") Long userId){
-        return new Result(200,"查询成功！",null);
+    public Result getUser(@RequestParam("id") int id){
+        User user = userService.getUser(id);
+        return user!=null ? new Result(200,"用户查询成功！",user) : new Result(444,"查询无此用户！");
+    }
+
+    @PostMapping("/user/update")
+    public Result updateUser(User user){
+        int result = userService.updateUser(user);
+        return result == 1 ? new Result(200,"用户更新成功！",user) : new Result(444,"用户更新失败！",null);
+    }
+
+    @GetMapping("/user/delete")
+    public Result deleteUser(@RequestParam("id") int id){
+        int result = userService.deleteUser(id);
+        return result == 1 ? new Result(200,"用户删除成功！",null) : new Result(444,"用户删除失败！");
+    }
+
+    @GetMapping("/user/hello")
+    public Result hello(){
+        return new Result(200,"hello！",null);
     }
 }
